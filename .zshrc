@@ -1,3 +1,11 @@
+#  __   __   __    __  
+# |  \ |  | |  |  |  | 
+# |   \|  | |  |__|  |  Nick Hartjes
+# |    `  | |   __   |  https://nickhartjes.nl
+# |  |\   | |  |  |  |  https://github.com/nickhartjes/
+# |__| \__| |__|  |__| 
+#    
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

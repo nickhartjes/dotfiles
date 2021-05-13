@@ -25,7 +25,7 @@ local apps = require("configuration.apps");
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
+if _G.awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
                      text = awesome.startup_errors })
@@ -34,7 +34,7 @@ end
 -- Handle runtime errors after startup
 do
     local in_error = false
-    awesome.connect_signal("debug::error", function (err)
+    _G.awesome.connect_signal("debug::error", function (err)
         -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true
@@ -49,7 +49,11 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init("~/.config/awesome/theme/nh/theme.lua")
+
+-- Theme
+-- beautiful.init(require('theme'))
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "xterm"
@@ -61,11 +65,10 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod4"
+-- modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -81,6 +84,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    awful.layout.suit.floating,
 }
 -- }}}
 
@@ -166,7 +170,12 @@ local function set_wallpaper(s)
 end
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
-screen.connect_signal("property::geometry", set_wallpaper)
+_G.screen.connect_signal("property::geometry", set_wallpaper)
+
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local spotify_widget = require("awesome-wm-widgets.spotify-widget.spotify")
+local logout_popup = require("awesome-wm-widgets.logout-popup-widget.logout-popup")
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
@@ -200,7 +209,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top", height = 25, screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -217,14 +226,51 @@ awful.screen.connect_for_each_screen(function(s)
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
+            batteryarc_widget({
+                show_current_level = true,
+                arc_thickness = 1,
+            }),
             s.mylayoutbox,
+            -- logout_menu_widget(),
+            -- spotify_widget(),
+            logout_popup.widget{},
+        },
+    }
+
+    s.mywibox1 = awful.wibar({ position = "left", width= 25, screen = s , visible = true})
+
+    -- Add widgets to the wibox
+    s.mywibox1:setup {
+        layout = wibox.layout.fixed.vertical,
+        { -- Left widgets
+            layout = wibox.layout.fixed.vertical,
+            -- mylauncher,
+            s.mytaglist,
+            -- s.mypromptbox,
+        },
+        -- s.mytasklist, -- Middle widget
+        { -- Right widgets
+            layout = wibox.layout.fixed.vertical,
+            -- mykeyboardlayout,
+            -- wibox.widget.systray({
+            --     forced_width = 25
+            -- }),
+            -- mytextclock,
+            -- batteryarc_widget({
+            --     show_current_level = true,
+            --     arc_thickness = 1,
+            -- }),
+            -- s.mylayoutbox,
+            -- logout_menu_widget(),
+            -- spotify_widget(),
+            logout_popup.widget{},
         },
     }
 end)
 -- }}}
 
 -- {{{ Mouse bindings
-root.buttons(gears.table.join(
+_G.root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
@@ -240,7 +286,7 @@ _G.root.keys(require('configuration.keys.global'))
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
-client.connect_signal("manage", function (c)
+_G.client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
@@ -254,7 +300,7 @@ client.connect_signal("manage", function (c)
 end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
+_G.client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = gears.table.join(
         awful.button({ }, 1, function()
@@ -294,12 +340,12 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
+_G.client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+_G.client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+_G.client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
 -- Init all modules

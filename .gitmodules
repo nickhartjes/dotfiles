@@ -7,3 +7,6 @@
 [submodule ".config/awesome/awesome-buttons"]
 	path = .config/awesome/awesome-buttons
 	url = https://github.com/streetturtle/awesome-buttons
+[submodule ".config/powerlevel10k"]
+	path = .config/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

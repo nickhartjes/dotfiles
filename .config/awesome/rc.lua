@@ -20,6 +20,10 @@ require("awful.hotkeys_popup.keys")
 
 require('configuration.client')
 
+-- Set keys
+_G.root.keys(require('configuration.keys.global'))
+-- }}}
+
 local apps = require("configuration.apps");
 
 -- {{{ Error handling
@@ -237,35 +241,72 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 
-    s.mywibox1 = awful.wibar({ position = "left", width= 25, screen = s , visible = true})
+    -- s.mywibox1 = awful.wibar({ 
+    --     position = "left", 
+    --     width= 25, 
+    --     screen = s , 
+    --     visible = true,
+    --     type = "dock"
+    -- })
 
-    -- Add widgets to the wibox
-    s.mywibox1:setup {
-        layout = wibox.layout.fixed.vertical,
-        { -- Left widgets
+    local wb = awful.wibar { position = 'left', width = 25 }
+    wb:setup {
+        layout = wibox.layout.align.vertical,
+        {
+            -- Rotate the widgets with the container
+            {
+                s.mytaglist,
+                direction = 'west',
+                widget = wibox.container.rotate
+            },
             layout = wibox.layout.fixed.vertical,
-            -- mylauncher,
-            s.mytaglist,
-            -- s.mypromptbox,
         },
-        -- s.mytasklist, -- Middle widget
-        { -- Right widgets
+        -- s.mytaglist,
+        {
             layout = wibox.layout.fixed.vertical,
-            -- mykeyboardlayout,
-            -- wibox.widget.systray({
-            --     forced_width = 25
-            -- }),
-            -- mytextclock,
-            -- batteryarc_widget({
-            --     show_current_level = true,
-            --     arc_thickness = 1,
-            -- }),
-            -- s.mylayoutbox,
-            -- logout_menu_widget(),
-            -- spotify_widget(),
-            logout_popup.widget{},
+            {
+                -- Rotate the widgets with the container
+                {
+                    
+                    layout = wibox.layout.fixed.horizontal,
+                    logout_popup.widget{},
+                },
+                direction = 'north',
+                widget = wibox.container.rotate
+            }
         },
     }
+
+    -- Add widgets to the wibox
+    -- s.mywibox1:setup {
+    --     layout = wibox.layout.align.vertical,
+    --     direction = 'west',
+    --     { -- Left widgets
+    --     direction = 'west',
+    --         logout_popup.widget{},
+    --         layout = wibox.layout.fixed.vertical,
+    --         -- mylauncher,
+    --         s.mytaglist,
+    --         -- s.mypromptbox,
+    --     },
+    --     -- s.mytasklist, -- Middle widget
+    --     { -- Right widgets
+    --         layout = wibox.layout.fixed.vertical,
+    --         -- mykeyboardlayout,
+    --         -- wibox.widget.systray({
+    --         --     forced_width = 25
+    --         -- }),
+    --         -- mytextclock,
+    --         -- batteryarc_widget({
+    --         --     show_current_level = true,
+    --         --     arc_thickness = 1,
+    --         -- }),
+    --         -- s.mylayoutbox,
+    --         -- logout_menu_widget(),
+    --         -- spotify_widget(),
+    --         logout_popup.widget{},
+    --     },
+    -- }
 end)
 -- }}}
 
@@ -278,9 +319,7 @@ _G.root.buttons(gears.table.join(
 -- }}}
 
 
--- Set keys
-_G.root.keys(require('configuration.keys.global'))
--- }}}
+
 
 
 
@@ -346,7 +385,7 @@ end)
 
 _G.client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 _G.client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
+
 
 -- Init all modules
 require('module.autostart')

@@ -7,6 +7,9 @@
 [submodule ".config/awesome/awesome-buttons"]
 	path = .config/awesome/awesome-buttons
 	url = https://github.com/streetturtle/awesome-buttons
+[submodule ".config/.oh-my-zsh"]
+	path = .config/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule ".config/powerlevel10k"]
 	path = .config/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git

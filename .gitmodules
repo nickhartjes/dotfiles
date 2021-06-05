@@ -13,3 +13,9 @@
 [submodule ".config/powerlevel10k"]
 	path = .config/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "/home/nickhartjes/.config/.oh-my-zsh"]
+	path = /home/nickhartjes/.config/.oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
+[submodule "/home/nickhartjes/.config/powerlevel10k"]
+	path = /home/nickhartjes/.config/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

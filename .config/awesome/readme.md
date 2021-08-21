@@ -1,5 +1,0 @@
-
-
-```
-sudo pacman -S acpi
-```

@@ -1,9 +1,6 @@
 [submodule ".config/awesome"]
-	path = ~/.config/awesome
+	path = .config/awesome
 	url = https://github.com/lcpz/awesome-copycats.git
 [submodule ".config/.oh-my-zsh"]
-	path = ~/.config/.oh-my-zsh
-	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule ".config/.oh-my-zsh"]
-	path = /home/nickhartjes/.config/.oh-my-zsh
+	path = .config/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git

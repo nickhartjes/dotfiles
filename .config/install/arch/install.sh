@@ -1,4 +1,4 @@
-cat#!/bin/bash
+#!/bin/bash
 
 ./100-install-core-software.sh  
 ./200-install-desktop-software.sh  

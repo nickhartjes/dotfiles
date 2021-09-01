@@ -1,21 +1,9 @@
-[submodule ".config/awesome/widgets"]
-	path = .config/awesome/widgets
-	url = https://github.com/streetturtle/awesome-wm-widgets
-[submodule ".config/awesome/awesome-wm-widgets"]
-	path = .config/awesome/awesome-wm-widgets
-	url = https://github.com/streetturtle/awesome-wm-widgets.git
-[submodule ".config/awesome/awesome-buttons"]
-	path = .config/awesome/awesome-buttons
-	url = https://github.com/streetturtle/awesome-buttons
+[submodule ".config/awesome"]
+	path = ~/.config/awesome
+	url = https://github.com/lcpz/awesome-copycats.git
 [submodule ".config/.oh-my-zsh"]
-	path = .config/.oh-my-zsh
+	path = ~/.config/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule ".config/powerlevel10k"]
-	path = .config/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "/home/nickhartjes/.config/.oh-my-zsh"]
+[submodule ".config/.oh-my-zsh"]
 	path = /home/nickhartjes/.config/.oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
-[submodule "/home/nickhartjes/.config/powerlevel10k"]
-	path = /home/nickhartjes/.config/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git

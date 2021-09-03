@@ -14,8 +14,6 @@ install lightdm-webkit2-greeter
 install picom
 install feh
 
-sudo systemctl enable lightdm -f
-
 echo "################################################################"
 echo "################### awesomewm software installed"
 echo "################################################################"

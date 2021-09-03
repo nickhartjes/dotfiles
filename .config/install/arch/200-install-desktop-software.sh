@@ -23,6 +23,7 @@ aurinstall joplin-desktop
 
 install firefox
 install chromium
+install brave-bin
 
 aurinstall alacritty
 
@@ -38,7 +39,6 @@ aurinstall sublime-text-4
 aurinstall gitahead-bin
 
 aurinstall pamac-manager
-aurinstall pamac-tray
 install pavucontrol
 
 echo "################################################################"

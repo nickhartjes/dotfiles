@@ -15,3 +15,4 @@ rsync -a --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
 
 # Copy .zshrc config
 cp -r $HOME/.dotfiles/.zshrc-personal                                   $HOME/.zshrc-personal
+cp -r $HOME/.dotfiles/.p10k.zsh                                         $HOME/.p10k.zsh

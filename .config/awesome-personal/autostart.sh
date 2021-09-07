@@ -19,9 +19,11 @@ run flameshot
 
 run feh --bg-fill --randomize ~/.wallpapers
 
-if  [ "$HOSTNAME" = "arco-laptop"]
+if [ "$HOSTNAME" = "arco-laptop" ]; then
     run bluebery-tray
 fi
+
 if [ "$HOSTNAME" = "arco-desktop" ]; then
-    run xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x604 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off
+    echo "Arco Desktop loaded"
+    xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x604 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off
 fi

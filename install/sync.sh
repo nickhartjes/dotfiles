@@ -1,3 +1,12 @@
+#!/bin/bash
+#  __   __   __    __  
+# |  \ |  | |  |  |  | 
+# |   \|  | |  |__|  |  Nick Hartjes
+# |    `  | |   __   |  https://nickhartjes.nl
+# |  |\   | |  |  |  |  https://github.com/nickhartjes/
+# |__| \__| |__|  |__| 
+#    
+
 rsync -a --delete  $HOME/.dotfiles/.config/awesome                      $HOME/.config
 rsync -a --delete  $HOME/.dotfiles/.config/awesome-personal             $HOME/.config
 rsync -a --delete  $HOME/.dotfiles/.config/.oh-my-zsh                   $HOME/.config
@@ -11,7 +20,6 @@ cp -r $HOME/.config/awesome-personal/themes/dremora/theme-personal.lua  $HOME/.c
 
 # Copy wallpapers
 rsync -a --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
-
 
 # Copy .zshrc config
 cp -r $HOME/.dotfiles/.zshrc-personal                                   $HOME/.zshrc-personal

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./functions.sh
+source ~/.dotfiles/install/arch/functions.sh
 
 echo "################################################################"
 echo "################### installing awesomewm software"

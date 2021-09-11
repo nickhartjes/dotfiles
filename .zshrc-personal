@@ -37,11 +37,25 @@ plugins=(
 )
 
 alias w='feh --randomize --bg-fill ~/.wallpapers/*'
+alias ww='feh --randomize --bg-fill ~/.wallpapers/photos/*'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+alias sshMaster='ssh -i ~/.ssh/linux-foundation-course-key.pem ubuntu@ec2-18-184-182-234.eu-central-1.compute.amazonaws.com'
+alias sshNode='ssh -i ~/.ssh/linux-foundation-course-key.pem ubuntu@ec2-18-157-175-50.eu-central-1.compute.amazonaws.com'
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
+alias configZsh="vim ~/.zshrc-personal"
+alias configAwesome="vim ~/.config/awesome/rc.lua"
+
+# Dotfiles
+alias .install="sh ~/.dotfiles/install/install.sh"
+alias .installSoftware="sh ~/.dotfiles/install/arch/install.sh"
+alias .sync="sh ~/.dotfiles/install/sync.sh"
+
+# Desktop settings
+alias dtScreens="xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x604 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off"
+alias dtInit="spotify"
 
 export PATH=~/.cargo/bin:$PATH
 export CHROME_BIN=/usr/bin/chromium

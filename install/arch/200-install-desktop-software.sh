@@ -24,6 +24,7 @@ aurinstall joplin-desktop
 install firefox
 install chromium
 install brave-bin
+install okular
 
 aurinstall alacritty
 

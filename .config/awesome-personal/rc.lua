@@ -114,8 +114,8 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
@@ -129,7 +129,7 @@ awful.layout.layouts = {
     --lain.layout.cascade.tile,
     --lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
+    lain.layout.termfair,
     --lain.layout.termfair.center
 }
 

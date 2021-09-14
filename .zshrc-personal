@@ -45,8 +45,8 @@ alias sshNode='ssh -i ~/.ssh/linux-foundation-course-key.pem ubuntu@ec2-18-157-1
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-alias configZsh="vim ~/.zshrc-personal"
-alias configAwesome="vim ~/.config/awesome/rc.lua"
+alias editZsh="vim ~/.zshrc-personal"
+alias editAwesome="vim ~/.config/awesome/rc.lua"
 
 # Dotfiles
 alias .install="sh ~/.dotfiles/install/install.sh"

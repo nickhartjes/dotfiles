@@ -54,8 +54,11 @@ alias .installSoftware="sh ~/.dotfiles/install/arch/install.sh"
 alias .sync="sh ~/.dotfiles/install/sync.sh"
 
 # Desktop settings
-alias dtScreens="xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x604 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off"
+alias dtScreens="xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x500 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off"
 alias dtInit="spotify"
+
+# Laptop settings
+alias ltScreens="xrandr --auto --output HDMI1 --mode 1920x1080 --left-of eDP1"
 
 export PATH=~/.cargo/bin:$PATH
 export CHROME_BIN=/usr/bin/chromium

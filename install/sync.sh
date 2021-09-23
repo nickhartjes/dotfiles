@@ -16,6 +16,7 @@ rsync -a --delete  $HOME/.dotfiles/.config/alacritty                    $HOME/.c
 cp -r $HOME/.config/awesome-personal/rc.lua                             $HOME/.config/awesome/rc.lua
 cp -r $HOME/.config/awesome-personal/picom.conf                         $HOME/.config/awesome/picom.conf
 cp -r $HOME/.config/awesome-personal/autostart.sh                       $HOME/.config/awesome/autostart.sh
+mkdir -p $HOME/.config/awesome/themes/dremora
 cp -r $HOME/.config/awesome-personal/themes/dremora/theme-personal.lua  $HOME/.config/awesome/themes/dremora/theme-personal.lua
 
 # Copy wallpapers

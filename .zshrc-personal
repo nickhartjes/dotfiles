@@ -40,8 +40,8 @@ alias w='feh --randomize --bg-fill ~/.wallpapers/*'
 alias ww='feh --randomize --bg-fill ~/.wallpapers/photos/*'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-alias sshMaster='ssh -i ~/.ssh/linux-foundation-course-key.pem ubuntu@ec2-3-67-39-250.eu-central-1.compute.amazonaws.com'
-alias sshNode='ssh -i ~/.ssh/linux-foundation-course-key.pem ubuntu@ec2-3-70-29-225.eu-central-1.compute.amazonaws.com'
+alias sshMaster='ssh -i "~/.ssh/linux-foundation-course-key.pem" ubuntu@ec2-18-185-215-175.eu-central-1.compute.amazonaws.com'
+alias sshNode='ssh -i "~/.ssh/linux-foundation-course-key.pem" ubuntu@ec2-18-196-41-185.eu-central-1.compute.amazonaws.com'
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 

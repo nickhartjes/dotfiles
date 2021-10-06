@@ -16,7 +16,7 @@ run numlockx on
 run volumeicon
 run flameshot
 
-run feh --bg-fill --randomize ~/.wallpapers
+run feh --bg-fill --randomize ~/.wallpapers/photos
 
 if [ "$HOSTNAME" = "arco-laptop" ]; then
     run bluebery-tray

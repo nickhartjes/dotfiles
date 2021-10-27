@@ -26,6 +26,9 @@ rsync -a --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
 # Copy .zshrc config
 cp -r $HOME/.dotfiles/.zshrc-personal                                   $HOME/.zshrc-personal
 cp -r $HOME/.dotfiles/.p10k.zsh                                         $HOME/.p10k.zsh
-
+cp -r $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
 # Install NVIM plugins
 nvim +'PlugInstall --sync' +qa
+
+# Add zshrc-personal to zshrc
+grep -qxF '[[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal' ~/.zshrc || echo '[[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal' >> ~/.zshrc

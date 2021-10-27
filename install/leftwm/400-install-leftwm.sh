@@ -3,19 +3,21 @@
 source ~/.dotfiles/install/arch/functions.sh
 
 echo "################################################################"
-echo "################### installing awesomewm software"
+echo "################### installing leftwm software"
 echo "################################################################"
 
 install xorg
 install xorg-xinit
-install awesome
-install lightdm
+aurinstall leftwm
+aurinstall leftwm-theme
 install lightdm-webkit2-greeter
 install picom
 install feh
 install rofi
+install dmenu
+aurinstall polybar
 
 echo "################################################################"
-echo "################### awesomewm software installed"
+echo "################### leftwm software installed"
 echo "################################################################"
 echo ""

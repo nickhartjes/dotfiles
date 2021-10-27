@@ -10,6 +10,9 @@ aurinstall aws-cli-v2-bin
 aurinstall bitwarden-cli
 aurinstall kubectl-bin
 aurinstall k9s
+aurinstall hwinfo
+aurinstall expac
+
 
 # https://popeyecli.io/
 aurinstall popeye

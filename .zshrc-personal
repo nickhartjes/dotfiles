@@ -55,7 +55,7 @@ alias .installSoftware="sh ~/.dotfiles/install/arch/install.sh"
 alias .sync="sh ~/.dotfiles/install/sync.sh"
 
 # Desktop settings
-alias dtScreens="xrandr --output DisplayPort-0 --primary --mode 2560x1440 --pos 0x500 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 2560x0 --rotate left --output DisplayPort-2 --off --output HDMI-A-0 --off"
+alias dtScreens="xrandr --output DisplayPort-0 --mode 2560x1440 --pos 0x360 --rotate normal --output DisplayPort-1 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output DisplayPort-2 --off --output HDMI-A-0 --mode 2560x1440 --pos 6400x360 --rotate normal"
 alias dtInit="spotify"
 
 # Laptop settings
@@ -63,6 +63,7 @@ alias ltScreens="xrandr --auto --output HDMI1 --mode 1920x1080 --left-of eDP1"
 
 export PATH=~/.cargo/bin:$PATH
 export CHROME_BIN=/usr/bin/chromium
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

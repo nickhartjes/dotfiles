@@ -28,4 +28,4 @@ cp -r $HOME/.dotfiles/.zshrc-personal                                   $HOME/.z
 cp -r $HOME/.dotfiles/.p10k.zsh                                         $HOME/.p10k.zsh
 
 # Install NVIM plugins
-vim +'PlugInstall --sync' +qa
+nvim +'PlugInstall --sync' +qa

@@ -13,6 +13,8 @@ aurinstall k9s
 aurinstall hwinfo
 aurinstall expac
 
+aurinstall neovim
+
 
 # https://popeyecli.io/
 aurinstall popeye

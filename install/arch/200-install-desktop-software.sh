@@ -19,7 +19,7 @@ install teams
 
 aurinstall authy
 aurinstall lens-bin
-aurinstall joplin-desktop
+# aurinstall joplin-desktop
 
 install firefox
 install chromium
@@ -28,16 +28,10 @@ install okular
 
 aurinstall alacritty
 
-aurinstall insync
+aurinstall obsidian
 
 aurinstall bitwarden-bin
 aurinstall bitwarden-cli
-
-# IDE's and Software
-aurinstall intellij-idea-ultimate-edition
-aurinstall visual-studio-code-bin
-aurinstall sublime-text-4
-aurinstall gitahead-bin
 
 aurinstall pamac-manager
 install pavucontrol

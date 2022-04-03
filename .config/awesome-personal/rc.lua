@@ -97,25 +97,25 @@ local themes = {
     "vertex"           -- 10
 }
 
-local chosen_theme = themes[3]
+local chosen_theme = themes[4]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "alacritty"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
-local browser      = "firefox"
+local browser      = "brave"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.fair,
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
@@ -171,7 +171,7 @@ awful.util.tasklist_buttons = mytable.join(
      awful.button({ }, 5, function() awful.client.focus.byidx(-1) end)
 )
 
-beautiful.init(string.format("%s/.config/awesome/themes/%s/theme-personal.lua", os.getenv("HOME"), chosen_theme))
+beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 
 -- }}}
 
@@ -198,6 +198,7 @@ awful.util.mymainmenu = freedesktop.menu.build {
 }
 
 -- Hide the menu when the mouse leaves it
+--[[
 awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function()
     if not awful.util.mymainmenu.active_child or
        (awful.util.mymainmenu.wibox ~= mouse.current_wibox and
@@ -212,6 +213,7 @@ awful.util.mymainmenu.wibox:connect_signal("mouse::leave", function()
         end)
     end
 end)
+--]]
 
 -- Set the Menubar terminal for applications that require it
 --menubar.utils.terminal = terminal
@@ -395,7 +397,7 @@ globalkeys = mytable.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "q",  function () awful.util.spawn( "arcolinux-logout" ) end, 
+    awful.key({ modkey, "Shift"   }, "q",  function () awful.util.spawn( "arcolinux-logout" ) end,
               {description = "quit awesome", group = "awesome"}),
 
     awful.key({ modkey, altkey    }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -519,15 +521,14 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
-    --[[ User programs
-    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
+    -- User programs
+    awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
-    ]]--
 
     -- Default
     --[[ Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
     --]]
 
     -- dmenu
@@ -540,6 +541,15 @@ globalkeys = mytable.join(
     -- rofi
     awful.key({ modkey }, "p", function () awful.util.spawn( "rofi -show drun" ) end,
         {description = "rofi" , group = "function keys" }),
+
+    --[[ dmenu
+    awful.key({ modkey }, "x", function ()
+            os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
+            beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+        end,
+        {description = "show dmenu", group = "launcher"}),
+
+
 
     -- alternatively use rofi, a dmenu-like application with more features
     -- check https://github.com/DaveDavenport/rofi for more details
@@ -554,22 +564,22 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
-   --[[ awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"})
-    --]]
+--     awful.key({ modkey }, "x",
+--               function ()
+--                   awful.prompt.run {
+--                     prompt       = "Run Lua code: ",
+--                     textbox      = awful.screen.focused().mypromptbox.widget,
+--                     exe_callback = awful.util.eval,
+--                     history_path = awful.util.get_cache_dir() .. "/history_eval"
+--                   }
+--               end,
+--               {description = "lua execute prompt", group = "awesome"})
+--     --]]
 
     -- Change wallpaper
     awful.key({ "Shift" }, "Print", function () awful.spawn.with_shell("feh --bg-fill --randomize ~/.wallpapers") end,
         {description = "Change wallpaper", group = "launcher"}),
-    
+
     -- screenshots
     awful.key({ "Ctrl" }, "Print", function () awful.util.spawn("flameshot gui") end,
         {description = "Take screenshot", group = "launcher"})
@@ -699,6 +709,7 @@ awful.rules.rules = {
     { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
+                     callback = awful.client.setslave,
                      focus = awful.client.focus.filter,
                      raise = true,
                      keys = clientkeys,
@@ -721,13 +732,14 @@ awful.rules.rules = {
           "arcolinux-logout",
           "Blueman-manager",
           "Blueberry",
+          "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
           "Sxiv",
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
-	  "Wifi",
+	      "Wifi",
           "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -742,32 +754,10 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
-        -- Add titlebars to normal clients and dialogs
-        { rule_any = {type = { "normal", "dialog" }
-            }, properties = { titlebars_enabled = true }
-        },
-
-        -- Floating clients without borders
-        { rule_any = {
-            instance = {
-                "ulauncher"
-            },
-            class = {
-            },
-            name = {
-                "Ulauncher - Application Launcher"
-            },
-            role = {
-            }
-          }, properties = { floating = true }},
-
-        -- Add titlebars to normal clients and dialogs
-        { rule_any = {type = { "normal", "dialog" }
-            }, properties = {
-                titlebars_enabled = false,
-                border_width = beautiful.border_none,
-            }
-        },
+    -- Add titlebars to normal clients and dialogs
+    { rule_any = {type = { "normal", "dialog" }
+      }, properties = { titlebars_enabled = true }
+    },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },

@@ -1,2 +1,4 @@
 .dotfiles
 .config/.install/.local
+.idea
+.gitignore

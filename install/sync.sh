@@ -11,12 +11,13 @@ rsync -a --delete  $HOME/.dotfiles/.config/awesome                      $HOME/.c
 rsync -a --delete  $HOME/.dotfiles/.config/awesome-personal             $HOME/.config
 rsync -a --delete  $HOME/.dotfiles/.config/.oh-my-zsh                   $HOME/.config
 rsync -a --delete  $HOME/.dotfiles/.config/alacritty                    $HOME/.config
-rsync -a --delete  $HOME/.dotfiles/.config/nvim                    		$HOME/.config
+rsync -a --delete  $HOME/.dotfiles/.config/nvim                    		  $HOME/.config
+rsync -a --delete  $HOME/.dotfiles/.config/k9s                    		  $HOME/.config
 
 # Copy awesome settings 
-cp -r $HOME/.config/awesome-personal/rc.lua                             $HOME/.config/awesome/rc.lua
-cp -r $HOME/.config/awesome-personal/picom.conf                         $HOME/.config/awesome/picom.conf
-cp -r $HOME/.config/awesome-personal/autostart.sh                       $HOME/.config/awesome/autostart.sh
+#cp -r $HOME/.config/awesome-personal/rc.lua                             $HOME/.config/awesome/rc.lua
+#cp -r $HOME/.config/awesome-personal/picom.conf                         $HOME/.config/awesome/picom.conf
+#cp -r $HOME/.config/awesome-personal/autostart.sh                       $HOME/.config/awesome/autostart.sh
 
 # Copy wallpapers
 rsync -a --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
@@ -24,7 +25,7 @@ rsync -a --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
 # Copy .zshrc config
 cp -r $HOME/.dotfiles/.zshrc-personal                                   $HOME/.zshrc-personal
 cp -r $HOME/.dotfiles/.p10k.zsh                                         $HOME/.p10k.zsh
-cp -r $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
+cp -r $HOME/.dotfiles/.gitconfig                                        $HOME/.gitconfig
 
 # Install NVIM plugins
 nvim +'PlugInstall --sync' +qa

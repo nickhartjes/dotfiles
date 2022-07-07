@@ -2,3 +2,4 @@
 .config/.install/.local
 .idea
 .gitignore
+*.iml

@@ -19,7 +19,6 @@ install teams
 
 aurinstall authy
 aurinstall lens-bin
-# aurinstall joplin-desktop
 
 install firefox
 install chromium

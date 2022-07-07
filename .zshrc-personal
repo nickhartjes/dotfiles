@@ -113,10 +113,6 @@ alias sr="sudo reboot"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
 # export PATH
 export CHROME_BIN=/usr/bin/chromium
 export PATH=~/.cargo/bin:$PATH
-export PATH=~/.krew/bin:$PATH
-
-neofetch

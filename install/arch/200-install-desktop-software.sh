@@ -15,7 +15,7 @@ install vlc
 
 # Communication
 install slack-desktop
-install teams
+# install teams
 
 aurinstall authy
 aurinstall lens-bin
@@ -34,6 +34,9 @@ aurinstall bitwarden-cli
 
 aurinstall pamac-manager
 install pavucontrol
+
+aurinstall signal-desktop
+aurinstall telegram-desktop
 
 echo "################################################################"
 echo "################### desktop software installed"

@@ -19,8 +19,6 @@ sudo systemctl enable bluetooth.service
 sudo systemctl disable nvidia-{resume,hibernate,suspend}.service
 sudo systemctl stop nvidia-{resume,hibernate,suspend}.service  # for good measure, although they should be stopped
 
-
-
 aurinstall pop-gtk-theme
 aurinstall pop-icon-theme
 
@@ -35,6 +33,7 @@ aurinstall ttf-roboto-slab
 aurinstall gnome-shell-extension-freon
 aurinstall gnome-shell-extension-pop-shell-bin
 aurinstall gnome-shell-extension-caffeine-git
+aurinstall gnome-shell-extension-timepp-git
 
 
 

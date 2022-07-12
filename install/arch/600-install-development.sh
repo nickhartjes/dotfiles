@@ -12,6 +12,7 @@ aurinstall intellij-idea-ultimate-edition-jre
 aurinstall visual-studio-code-bin
 aurinstall sublime-text-4
 aurinstall gitahead-bin
+aurinstall mysql-workbench
 
 aurinstall jdk17-temurin
 aurinstall jdk-temurin

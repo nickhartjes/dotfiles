@@ -38,6 +38,8 @@ install pavucontrol
 aurinstall signal-desktop
 aurinstall telegram-desktop
 
+
+
 echo "################################################################"
 echo "################### desktop software installed"
 echo "################################################################"

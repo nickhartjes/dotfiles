@@ -72,9 +72,8 @@ alias dtScreens="xrandr --output DisplayPort-0 --mode 2560x1440 --pos 0x360 --ro
 alias dtInit="spotify"
 
 # Laptop settings
-alias ltScreens="xrandr --auto --output HDMI1 --mode 1920x1080 --left-of eDP1"
-alias ltSingle="xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DVI-I-3-2 --off --output DVI-I-2-1 --off"
-alias ltTripple="xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1027x1080 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DVI-I-3-2 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-I-2-1 --mode 1920x1080 --pos 1920x0 --rotate normal"
+alias ltDouble="xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output DP-2 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --off"
+alias ltTripple="xrandr --output eDP-1 --primary --mode 1920x1080 --pos 5120x642 --rotate normal --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 2560x0 --rotate normal --output DP-2 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-3 --off --output DP-4 --off --output DP-5 --off"
 
 #list
 alias ls='ls --color=auto'
@@ -142,7 +141,7 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias scan="sudo rkhunter --update && sudo rkhunter --check && sudo chkrootkit && arch-audit -t"
 alias audit="sudo lynis audit system"
 
-#shutdown or reboot
+# Shutdown or reboot
 alias ssn="sudo shutdown now"
 alias sr="sudo reboot"
 

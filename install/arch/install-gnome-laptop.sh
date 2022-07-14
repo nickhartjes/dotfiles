@@ -6,7 +6,8 @@ echo "################################################################"
 echo ""
 
 sh ~/.dotfiles/install/arch/100-install-core-software.sh  
-sh ~/.dotfiles/install/arch/200-install-desktop-software.sh  
+sh ~/.dotfiles/install/arch/200-install-desktop-software.sh
+sh ~/.dotfiles/install/arch/200-install-security-software.sh
 sh ~/.dotfiles/install/arch/300-install-cli-software.sh
 sh ~/.dotfiles/install/arch/400-install-gnome.sh
 sh ~/.dotfiles/install/arch/500-install-laptop.sh

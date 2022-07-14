@@ -36,6 +36,20 @@ plugins=(
     zsh-autosuggestions
 )
 
+if [ -f $ZSH/oh-my-zsh.sh ]; then
+  source $ZSH/oh-my-zsh.sh
+fi
+
+# Path
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+### ALIASES ###
+
 alias w='feh --randomize --bg-fill ~/.wallpapers/*'
 alias ww='feh --randomize --bg-fill ~/.wallpapers/photos/*'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -43,7 +57,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias sshMaster='ssh -i "~/.ssh/linux-foundation-course-key.pem" ubuntu@ec2-18-185-215-175.eu-central-1.compute.amazonaws.com'
 alias sshNode='ssh -i "~/.ssh/linux-foundation-course-key.pem" ubuntu@ec2-18-196-41-185.eu-central-1.compute.amazonaws.com'
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 alias vim="nvim"
 alias vZsh="vim ~/.zshrc-personal"
@@ -66,15 +79,24 @@ alias ltTripple="xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1027x108
 #list
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -la'
+alias ll='ls -alFh'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
 #fix obvious typo's
 alias cd..='cd ..'
-alias pdw="pwd"
+alias pdw='pwd'
 alias udpate='sudo pacman -Syyu'
 alias upate='sudo pacman -Syyu'
+alias updte='sudo pacman -Syyu'
+alias updqte='sudo pacman -Syyu'
+alias upqll='paru -Syu --noconfirm'
+alias upal='paru -Syu --noconfirm'
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 #readable output
 alias df='df -h'
@@ -93,18 +115,32 @@ alias aur-update='paru -Sua'
 #hardware info --short
 alias hw="hwinfo --short"
 
+#switch between bash and zsh
+alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
+
 #get fastest mirrors in your neighborhood
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
+#our experimental - best option for the moment
+alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
+alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
+alias ram='rate-mirrors --allow-root --disable-comments arch | sudo tee /etc/pacman.d/mirrorlist'
+alias rams='rate-mirrors --allow-root --disable-comments --protocol https arch  | sudo tee /etc/pacman.d/mirrorlist'
 
-#Recent Installed Packages
+# Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
-#Cleanup orphaned packages
+# Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+# Security
+alias scan="sudo rkhunter --update && sudo rkhunter --check && sudo chkrootkit && arch-audit -t"
+alias audit="sudo lynis audit system"
 
 #shutdown or reboot
 alias ssn="sudo shutdown now"

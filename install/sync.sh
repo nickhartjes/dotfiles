@@ -7,12 +7,12 @@
 # |__| \__| |__|  |__| 
 #    
 
-rsync -a --delete  $HOME/.dotfiles/.config/awesome                      $HOME/.config
-rsync -a --delete  $HOME/.dotfiles/.config/awesome-personal             $HOME/.config
-rsync -a --delete  $HOME/.dotfiles/.config/.oh-my-zsh                   $HOME/.config
-rsync -a --delete  $HOME/.dotfiles/.config/alacritty                    $HOME/.config
-rsync -a --delete  $HOME/.dotfiles/.config/nvim                    		  $HOME/.config
-rsync -a --delete  $HOME/.dotfiles/.config/k9s                    		  $HOME/.config
+rsync -avR --delete  $HOME/.dotfiles/.config/awesome                      $HOME/.config
+rsync -avR --delete  $HOME/.dotfiles/.config/awesome-personal             $HOME/.config
+rsync -avR --delete  $HOME/.dotfiles/.config/.oh-my-zsh                   $HOME/.config
+rsync -avR --delete  $HOME/.dotfiles/.config/alacritty                    $HOME/.config
+rsync -avR --delete  $HOME/.dotfiles/.config/nvim                    		  $HOME/.config
+rsync -avR --delete  $HOME/.dotfiles/.config/k9s                    		  $HOME/.config
 
 # Copy awesome settings 
 #cp -r $HOME/.config/awesome-personal/rc.lua                             $HOME/.config/awesome/rc.lua
@@ -20,7 +20,7 @@ rsync -a --delete  $HOME/.dotfiles/.config/k9s                    		  $HOME/.con
 #cp -r $HOME/.config/awesome-personal/autostart.sh                       $HOME/.config/awesome/autostart.sh
 
 # Copy wallpapers
-rsync -a --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
+rsync -avR --delete  $HOME/.dotfiles/.wallpapers                          $HOME/
 
 # Copy .zshrc config
 cp -r $HOME/.dotfiles/.zshrc-personal                                   $HOME/.zshrc-personal

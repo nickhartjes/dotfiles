@@ -15,7 +15,10 @@ sudo systemctl enable bluetooth.service
 
 # Disable nvidia-suspend
 sudo systemctl disable nvidia-{resume,hibernate,suspend}.service
-sudo systemctl stop nvidia-{resume,hibernate,suspend}.service  # for good measure, although they should be stopped
+sudo systemctl stop nvidia-{resume,hibernate,suspend}.service
+
+aurinstall thinkfan-git
+aurinstall thinkfan-ui
 
 
 echo "################################################################"

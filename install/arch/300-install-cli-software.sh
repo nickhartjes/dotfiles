@@ -14,6 +14,7 @@ aurinstall hwinfo
 aurinstall expac
 
 aurinstall neovim
+aurinstall neofetch
 
 
 # https://popeyecli.io/
@@ -22,6 +23,7 @@ aurinstall popeye
 
 aurinstall zsh-theme-powerlevel10k-git
 aurinstall ttf-meslo-nerd-font-powerlevel10k
+aurinstall ttf-jetbrains-mono
 
 aurinstall go-yq
 aurinstall jq

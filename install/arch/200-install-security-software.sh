@@ -13,6 +13,9 @@ install ufw
 # System hardening and audit software
 aurinstall lynis
 install arch-audit
+install audit
+
+systemctl enable auditd.service
 
 install rkhunter
 aurinstall chkrootkit
